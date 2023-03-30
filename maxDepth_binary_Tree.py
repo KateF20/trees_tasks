@@ -7,10 +7,6 @@ class TreeNode(object):
 
 class Solution(object):
     def maxDepth(self, root):
-        """
-        :type root: TreeNode
-        :rtype: int
-        """
         counter = 0 # set a counter to count steps
 
         if root is None: # if root is empty
@@ -21,3 +17,13 @@ class Solution(object):
             depth_l = self.maxDepth(root.left) # and of the left
             counter = max(depth_r, depth_l) + 1 # find the max of them and add 1 for a current coot to count
             return counter
+
+solution = Solution()
+# input root = [3,9,20,null,null,15,7]
+root = TreeNode(3)
+root.left = TreeNode(9)
+root.right = TreeNode(20)
+root.right.left = TreeNode(15)
+root.right.right = TreeNode(7)
+# output 3
+print(solution.maxDepth(root))
